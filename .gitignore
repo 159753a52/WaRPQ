@@ -1,0 +1,29 @@
+# 0) 默认忽略所有文件
+*
+
+# 1) 允许进入子目录（否则后面的放行规则不会被检查）
+!*/
+
+# 2) 放行必须的小文件
+!.gitignore
+!README.md
+!requirements.txt
+!pyproject.toml
+!Makefile
+
+# 3) 只跟踪 test/ 目录下的 .py（含子目录）
+!test/*.py
+!test/**/*.py
+
+# 4) 额外把这些目录/文件强制忽略（就算里面有.py也不跟踪）
+test/runs/
+test/outputs/
+test/plots/
+test/compressed_ckpts/
+test/compressed_ckpts_apply/
+test/compressed_ckpts_obs/
+test/**/__pycache__/
+.vscode/
+*.log
+*.png
+*.ipynb
