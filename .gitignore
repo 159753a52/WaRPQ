@@ -1,25 +1,27 @@
-# 默认忽略一切
+# 1) 默认忽略一切
 *
-# 允许进入子目录
+
+# 2) 允许遍历子目录（否则后续规则进不去）
 !*/
-# 必要的元文件
+
+# 3) 必要元文件
 !.gitignore
 !README.md
 !requirements.txt
 !pyproject.toml
 !Makefile
-# 只跟踪 test/ 下的 .py（含子目录与 ckptcodec）
-!test/*.py
-!test/**/*.py
-# 强制忽略的大目录/垃圾（就算里面有 .py 也忽略）
-test/runs/
-test/outputs/
-test/plots/
-test/compressed_ckpts/
-test/compressed_ckpts_apply/
-test/compressed_ckpts_obs/
-test/**/__pycache__/
+
+# 4) 全局放行所有 Python 文件（任意目录）
+!*.py
+
+# 5) 强制忽略这些重量目录（即使里面有 .py 也不纳入）
+runs/
+outputs/
+checkpoints/
+weights/
+models/
+data/
+datasets/
+**/__pycache__/
 .vscode/
 *.log
-*.png
-*.ipynb
